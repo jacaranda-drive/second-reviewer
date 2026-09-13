@@ -1,0 +1,12 @@
+Agent Decision Distribution — Phase 1 T/A Screening
+Generated: 2026-04-23
+Total records screened by agent: 1221
+
+  Exclude       1115  (91.3%)
+  Include         65  (5.3%)
+  Uncertain       41  (3.4%)
+
+Notes:
+  - Uncertain records excluded from Cohen kappa (Option 2)
+  - Uncertain records remain in human review queue for T/A resolution
+  - Agent re-screened twice: initial run + re-screen with updated CDSS prompt

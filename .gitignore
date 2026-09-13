@@ -1,0 +1,38 @@
+# Database — keep local only
+backend/data/
+*.db
+*.db-shm
+*.db-wal
+
+# Environment / secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Audit logs (large JSONL files)
+backend/audit/
+audit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# PDFs
+pdfs/
+*.pdf

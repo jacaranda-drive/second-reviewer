@@ -1,0 +1,38 @@
+{
+  "generated": "2026-04-23",
+  "note": "Pre-final-resolution snapshot (7 conflicts still open). Agent Uncertain excluded from kappa per Option 2.",
+  "kappa": 0.8402,
+  "kappa_label": "Almost perfect agreement (Landis & Koch)",
+  "pct_agreement": 94.92,
+  "total_paired": 1221,
+  "n_for_kappa": 1180,
+  "n_agent_uncertain_excluded_from_kappa": 41,
+  "conflicts_remaining": 22,
+  "confusion_matrix": {
+    "Include": {
+      "Include": 60,
+      "Exclude": 10,
+      "Uncertain": 11
+    },
+    "Exclude": {
+      "Include": 1,
+      "Exclude": 1098,
+      "Uncertain": 29
+    },
+    "Uncertain": {
+      "Include": 4,
+      "Exclude": 7,
+      "Uncertain": 1
+    }
+  },
+  "human_distribution": {
+    "Exclude": 1128,
+    "Include": 81,
+    "Uncertain": 12
+  },
+  "agent_distribution": {
+    "Exclude": 1115,
+    "Uncertain": 41,
+    "Include": 65
+  }
+}
