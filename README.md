@@ -175,6 +175,7 @@ Expected response:
 - AI outputs should be treated as reviewer recommendations, not authoritative decisions.
 - Reproducing model decisions may depend on provider access, model version, prompt version, and sampling behaviour.
 - The human reviewer retains responsibility for eligibility decisions and conflict resolution.
+- Full-text screening requires the application to send a large payload to the agent. The character limits in `backend/agent/prompts.py` are realistic for full-text screening but may need to be adjusted according to the size of the documents being reviewed; otherwise, agent decisions at these stages would reflect only the opening portion of each document. Reviewers should note that responsible AI content tends to appear in discussion and conclusion sections, so a low limit will under-detect it.
 
 One limitation of the deposited record should be noted. Although the application stores criterion-level assessments and evidence quotations for every phase, those fields were lost for the 81 full-text records during a database restoration from an intermediate CSV export that did not carry them. They were subsequently recovered from a dated database backup at export time, and the published audit log discloses this. Neither database was modified in the course of the recovery.
 

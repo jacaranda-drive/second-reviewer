@@ -608,6 +608,17 @@ SYSTEM_PROMPTS = {
     3: SYSTEM_PROMPT_PHASE_3,
 }
 
+# Record content passed to the agent is truncated before sending. The limits below
+# are configurable: raising them gives the agent more of each document to reason
+# over, at a proportionate increase in input token cost per record. Phase 2 and 3
+# limits are the ones that matter, since full texts and policy documents routinely
+# exceed them.
+#
+# Note that responsible AI content, governance, equity, and limitations discussion
+# tends to sit in the Discussion and Conclusion sections, towards the end of a
+# paper. A low limit will therefore under-detect it. Reviewers adjusting these
+# values should weigh cost against the risk of truncating the very content their
+# eligibility criteria depend on.
 
 def build_user_prompt(record: dict, phase: int) -> str:
     """Build the user-turn prompt for a single record."""
@@ -633,9 +644,11 @@ Abstract:
 {abstract}"""
 
     if phase == 2 and record.get("full_text"):
+        # Adjust the character limit to trade token cost against coverage.
         base += f"\n\nFull text (truncated to first 6000 characters):\n{record['full_text'][:6000]}"
 
     if phase == 3 and record.get("full_text"):
+        # Grey literature documents are often longer; adjust as above.
         base += f"\n\nDocument content (truncated to first 8000 characters):\n{record['full_text'][:8000]}"
 
     return base
